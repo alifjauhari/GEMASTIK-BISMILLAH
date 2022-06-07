@@ -21,7 +21,9 @@ namespace Zetcil
            usingKorean,
            KoreanEvent,
            usingChinese,
-           ChineseEvent
+           ChineseEvent,
+           usingOther,
+           OtherEvent
         ;
 
         void OnEnable()
@@ -42,6 +44,8 @@ namespace Zetcil
             KoreanEvent = serializedObject.FindProperty("KoreanEvent");
             usingChinese = serializedObject.FindProperty("usingChinese");
             ChineseEvent = serializedObject.FindProperty("ChineseEvent");
+            usingOther = serializedObject.FindProperty("usingOther");
+            OtherEvent = serializedObject.FindProperty("OtherEvent");
         }
         public override void OnInspectorGUI()
         {
@@ -89,6 +93,11 @@ namespace Zetcil
                 if (usingChinese.boolValue)
                 {
                     EditorGUILayout.PropertyField(ChineseEvent, true);
+                }
+                EditorGUILayout.PropertyField(usingOther, true);
+                if (usingOther.boolValue)
+                {
+                    EditorGUILayout.PropertyField(OtherEvent, true);
                 }
             }
             else

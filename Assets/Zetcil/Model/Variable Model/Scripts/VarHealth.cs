@@ -30,6 +30,29 @@ namespace Zetcil
             }
         }
 
+        public void SaveVariable()
+        {
+            PlayerPrefs.SetFloat(transform.gameObject.name, CurrentValue);
+        }
+
+        public void SaveVariableDebug()
+        {
+            PlayerPrefs.SetFloat(transform.gameObject.name, CurrentValue);
+            Debug.Log("Save Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+        public void LoadVariable()
+        {
+            CurrentValue = PlayerPrefs.GetFloat(transform.name);
+        }
+
+        public void LoadVariableDebug()
+        {
+            CurrentValue = PlayerPrefs.GetFloat(transform.name);
+            Debug.Log("Load Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+
         public float GetMinValue()
         {
             return MinValue;
@@ -65,6 +88,15 @@ namespace Zetcil
             aValue.text = CurrentValue.ToString();
         }
 
+        public void OutputFromCurrentValue(Text aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void OutputFromCurrentValue(TextMesh aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
 
         public void SetCurrentValue(float aValue)
         {

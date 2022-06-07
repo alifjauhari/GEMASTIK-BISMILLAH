@@ -22,6 +22,28 @@ namespace Zetcil
         [ConditionalField("Constraint")] public int MinValue;
         [ConditionalField("Constraint")] public int MaxValue;
 
+        public void SaveVariable()
+        {
+            PlayerPrefs.SetInt(transform.gameObject.name, CurrentValue);
+        }
+
+        public void SaveVariableDebug()
+        {
+            PlayerPrefs.SetInt(transform.gameObject.name, CurrentValue);
+            Debug.Log("Save Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+        public void LoadVariable()
+        {
+            CurrentValue = PlayerPrefs.GetInt(transform.name);
+        }
+
+        public void LoadVariableDebug()
+        {
+            CurrentValue = PlayerPrefs.GetInt(transform.name);
+            Debug.Log("Load Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
         public void SetPrefCurrentValue(string aID)
         {
             PlayerPrefs.SetInt(aID, CurrentValue);
@@ -61,7 +83,6 @@ namespace Zetcil
             MaxValue = aValue;
         }
 
-
         public int GetCurrentValue()
         {
             return CurrentValue;
@@ -71,7 +92,17 @@ namespace Zetcil
         {
             aValue.text = CurrentValue.ToString();
         }
-        public void OutputFromCurrentValue(InputField aValue)
+        public void PrintToText(InputField aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void PrintToText(Text aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void PrintToText(TextMesh aValue)
         {
             aValue.text = CurrentValue.ToString();
         }
@@ -153,6 +184,11 @@ namespace Zetcil
             if (Constraint && CurrentValue <= MinValue) CurrentValue = MinValue;
         }
 
+        public void SubstractCycleFromCurrentValue(int aValue)
+        {
+            CurrentValue -= aValue;
+            if (Constraint && CurrentValue < MinValue) CurrentValue = MaxValue;
+        }
 
         public bool IsShutdown()
         {

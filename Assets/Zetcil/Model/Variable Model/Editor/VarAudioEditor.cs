@@ -9,7 +9,8 @@ namespace Zetcil
         public SerializedProperty
            isEnabled,
            OperationType,
-           SoundVolume
+           SoundVolume,
+           TargetSlider
         ;
 
         void OnEnable()
@@ -18,6 +19,7 @@ namespace Zetcil
             isEnabled = serializedObject.FindProperty("isEnabled");
             OperationType = serializedObject.FindProperty("OperationType");
             SoundVolume = serializedObject.FindProperty("SoundVolume");
+            TargetSlider = serializedObject.FindProperty("TargetSlider");
         }
         public override void OnInspectorGUI()
         {
@@ -35,6 +37,7 @@ namespace Zetcil
                     EditorGUILayout.HelpBox("Publish Mode: ON", MessageType.Info);
                 }
                 EditorGUILayout.PropertyField(SoundVolume, true);
+                EditorGUILayout.PropertyField(TargetSlider, true);
             }
             else
             {

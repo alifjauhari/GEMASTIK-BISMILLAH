@@ -11,7 +11,9 @@ namespace Zetcil
            CurrentValue,
            Vector3X,
            Vector3Y,
-           Vector3Z
+           Vector3Z,
+           Rotation,
+           Position
         ;
 
         void OnEnable()
@@ -22,6 +24,8 @@ namespace Zetcil
             Vector3X = serializedObject.FindProperty("Vector3X");
             Vector3Y = serializedObject.FindProperty("Vector3Y");
             Vector3Z = serializedObject.FindProperty("Vector3Z");
+            Rotation = serializedObject.FindProperty("Rotation");
+            Position = serializedObject.FindProperty("Position");
         }
         public override void OnInspectorGUI()
         {
@@ -33,6 +37,8 @@ namespace Zetcil
                 EditorGUILayout.PropertyField(Vector3X);
                 EditorGUILayout.PropertyField(Vector3Y);
                 EditorGUILayout.PropertyField(Vector3Z);
+                EditorGUILayout.PropertyField(Position);
+                EditorGUILayout.PropertyField(Rotation);
             }
             else
             {

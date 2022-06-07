@@ -1,5 +1,6 @@
 <Language>
 	<UIGroup>
+		<Enter>输入 </Enter>
 		<Welcome>欢迎</Welcome>
 		
 		<Connection>连接</Connection>
@@ -202,6 +203,10 @@
 	</LocationGroup>	
 
 	<TaskGroup>
+	
+		<RestartText>您确定要重新启动 ?</RestartText>
+		<MenuText>您确定要返回菜单吗 ?</MenuText>
+	
 		<TaskPanel1>配套设备</TaskPanel1>
 		<TaskPanel2>电冰箱</TaskPanel2>
 	

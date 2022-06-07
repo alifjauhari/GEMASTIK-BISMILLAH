@@ -13,8 +13,9 @@ namespace Zetcil
     public class GlobalVariable : MonoBehaviour
     {
         public enum CInvokeType { OnAwake, OnStart, OnEvent, OnDelay, OnInterval, OnUpdate }
-        public enum CVariableType { timeVar, healthVar, manaVar, expVar, scoreVar, intVar, floatVar, stringVar, boolVar, objectVar };
+        public enum CVariableType {timeVar, healthVar, manaVar, expVar, scoreVar, intVar, floatVar, stringVar, boolVar, objectVar };
         public CVariableType VariableType;
+       
         public VarTime TimeVariables;
         public VarHealth HealthVariables;
         public VarMana ManaVariables;

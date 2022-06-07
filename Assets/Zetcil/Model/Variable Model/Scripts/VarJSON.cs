@@ -38,6 +38,11 @@ namespace Zetcil
 
         }
 
+        public void ClearJSON()
+        {
+            JSONRoot.Clear();
+        }
+
         public void AddNewJSONItem(string aKey, string aValue)
         {
             CJSONData temp = new CJSONData();
@@ -81,6 +86,11 @@ namespace Zetcil
         public void GetJSONDataByCurrentIndex()
         {
             JSONValue.CurrentValue = GetJSONDataByIndex(CurrentRootIndex, CurrentItemIndex);
+        }
+
+        public void GetJSONDataByIndex(Vector2 JSONIndex)
+        {
+            JSONValue.CurrentValue = GetJSONDataByIndex(Mathf.RoundToInt(JSONIndex.x), Mathf.RoundToInt(JSONIndex.y));
         }
 
         public void GetJSONDataByCurrentKeyword()

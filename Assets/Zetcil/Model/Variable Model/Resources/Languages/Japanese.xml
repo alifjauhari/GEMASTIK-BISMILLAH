@@ -1,5 +1,6 @@
 <Language>
 	<UIGroup>
+		<Enter>入る</Enter>
 		<Welcome>ようこそ</Welcome>
 	
 		<Connection>接続</Connection>
@@ -204,6 +205,9 @@
 	<TaskGroup>	
 		<TaskPanel1>装備</TaskPanel1>
 		<TaskPanel2>冷蔵庫</TaskPanel2>
+
+		<RestartText>再起動してもよろしいですか  ?</RestartText>
+		<MenuText>メニューに戻りますか ?</MenuText>
 
 		<Tutorial1>洗面台の使用</Tutorial1>
 		<Tutorial2>キッチン用品を入手する</Tutorial2>

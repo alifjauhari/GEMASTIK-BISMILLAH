@@ -19,6 +19,10 @@ namespace Zetcil
         public bool isEnabled;
         [ConditionalField("isEnabled")] public float CurrentValue;
 
+        float TotalScore;
+        bool StartTransferAdd = false;
+        bool StartTransferSub = false;
+
         void Start()
         {
 
@@ -26,12 +30,69 @@ namespace Zetcil
 
         void Update()
         {
+            if (StartTransferAdd)
+            {
+                CurrentValue += 1f;
+                if (CurrentValue > TotalScore)
+                {
+                    CurrentValue = TotalScore;
+                    StartTransferAdd = false;
+                }
+            }
+            if (StartTransferSub)
+            {
+                CurrentValue -= 1f;
+                if (CurrentValue < TotalScore)
+                {
+                    CurrentValue = TotalScore;
+                    StartTransferAdd = false;
+                }
+            }
         }
+
+        public void SaveVariable()
+        {
+            PlayerPrefs.SetFloat(transform.gameObject.name, CurrentValue);
+        }
+
+        public void SaveVariableDebug()
+        {
+            PlayerPrefs.SetFloat(transform.gameObject.name, CurrentValue);
+            Debug.Log("Save Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+        public void LoadVariable()
+        {
+            CurrentValue = PlayerPrefs.GetFloat(transform.name);
+        }
+
+        public void LoadVariableDebug()
+        {
+            CurrentValue = PlayerPrefs.GetFloat(transform.name);
+            Debug.Log("Load Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
 
         public float GetCurrentValue()
         {
             return CurrentValue;
         }
+
+        public void OutputFromCurrentValue(InputField aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void OutputFromCurrentValue(Text aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void OutputFromCurrentValue(TextMesh aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
 
         //-- Current Value Standard
         public void SetCurrentValue(float aValue)
@@ -43,6 +104,25 @@ namespace Zetcil
         public void AddToCurrentValue(float aValue)
         {
             CurrentValue += aValue;
+        }
+
+        public void TransferAddToCurrentValue(float aValue)
+        {
+            TotalScore = CurrentValue + aValue;
+            StartTransferAdd = true;
+            Invoke("ThreeSecond", 3);
+        }
+
+        public void TransferSubFromCurrentValue(float aValue)
+        {
+            TotalScore = CurrentValue - aValue;
+            StartTransferSub = true;
+            Invoke("ThreeSecond", 3);
+        }
+
+        void ThreeSecond()
+        {
+            CurrentValue = TotalScore;
         }
 
         public void SubtractFromCurrentValue(float aValue)

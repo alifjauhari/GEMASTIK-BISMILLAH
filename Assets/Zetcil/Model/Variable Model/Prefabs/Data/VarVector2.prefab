@@ -108,6 +108,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: VarFloatX
       objectReference: {fileID: 0}
+    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
+        type: 3}
+      propertyPath: isEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
+        type: 3}
+      propertyPath: MaxValue
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 4649909917097864, guid: ae66490c348fcd740b9b7a49a0886190, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -164,15 +174,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
+    - target: {fileID: 727730182219384180, guid: ae66490c348fcd740b9b7a49a0886190,
         type: 3}
-      propertyPath: isEnabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
-        type: 3}
-      propertyPath: MaxValue
-      value: 999
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 727730182219384180, guid: ae66490c348fcd740b9b7a49a0886190,
         type: 3}
@@ -210,6 +215,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: VarFloatY
       objectReference: {fileID: 0}
+    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
+        type: 3}
+      propertyPath: isEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
+        type: 3}
+      propertyPath: MaxValue
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 4649909917097864, guid: ae66490c348fcd740b9b7a49a0886190, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -266,15 +281,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
+    - target: {fileID: 727730182219384180, guid: ae66490c348fcd740b9b7a49a0886190,
         type: 3}
-      propertyPath: isEnabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714569439401506, guid: ae66490c348fcd740b9b7a49a0886190,
-        type: 3}
-      propertyPath: MaxValue
-      value: 999
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae66490c348fcd740b9b7a49a0886190, type: 3}

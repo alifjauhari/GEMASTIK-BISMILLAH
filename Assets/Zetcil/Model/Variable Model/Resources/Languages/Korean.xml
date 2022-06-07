@@ -1,5 +1,6 @@
 <Language>
 	<UIGroup>
+		<Enter>시작하다</Enter>
 		<Welcome>어서 오십시오</Welcome>
 		
 		<Connection>연결</Connection>
@@ -204,6 +205,9 @@
 	<TaskGroup>
 		<TaskPanel1>장비</TaskPanel1>
 		<TaskPanel2>냉장고</TaskPanel2>
+
+		<RestartText>다시 시작 하시겠습니까 ?</RestartText>
+		<MenuText>메뉴로 돌아가시겠습니까 ?</MenuText>
 
 		<Tutorial1>세면대 사용 </Tutorial1>
 		<Tutorial2>주방기구 받기 </Tutorial2>

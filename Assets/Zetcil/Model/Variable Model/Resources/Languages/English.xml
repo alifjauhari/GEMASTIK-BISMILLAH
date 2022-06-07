@@ -1,5 +1,6 @@
 <Language>
 	<UIGroup>
+		<Enter>ENTER</Enter>
 		<Welcome>WELCOME</Welcome>
 		
 		<Connection>CONNECTION</Connection>
@@ -122,6 +123,10 @@
 		<CreateRoom>Create Room</CreateRoom>
 		<QuitText>Are you sure you wanna quit?</QuitText>
 		<LogoutText>Are you sure you wanna logout?</LogoutText>
+		
+		<RestartText>Are you sure you want to restart ?</RestartText>
+		<MenuText>Are you sure you want to return to the menu ?</MenuText>
+		
 		<Information>Information</Information>
 		<Information1>This is information1</Information1>
 		<Information2>This is information2</Information2>

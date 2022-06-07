@@ -22,6 +22,28 @@ namespace Zetcil
         [ConditionalField("Constraint")] public float MinValue;
         [ConditionalField("Constraint")] public float MaxValue;
 
+        public void SaveVariable()
+        {
+            PlayerPrefs.SetFloat(transform.gameObject.name, CurrentValue);
+        }
+
+        public void SaveVariableDebug()
+        {
+            PlayerPrefs.SetFloat(transform.gameObject.name, CurrentValue);
+            Debug.Log("Save Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+        public void LoadVariable()
+        {
+            CurrentValue = PlayerPrefs.GetFloat(transform.name);
+        }
+
+        public void LoadVariableDebug()
+        {
+            CurrentValue = PlayerPrefs.GetFloat(transform.name);
+            Debug.Log("Load Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
         public void SetPrefCurrentValue(string aID)
         {
             PlayerPrefs.SetFloat(aID, CurrentValue);
@@ -70,7 +92,17 @@ namespace Zetcil
         {
             aValue.text = CurrentValue.ToString();
         }
-        public void OutputFromCurrentValue(InputField aValue)
+        public void PrintToText(InputField aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void PrintToText(Text aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void PrintToText(TextMesh aValue)
         {
             aValue.text = CurrentValue.ToString();
         }

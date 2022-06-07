@@ -21,13 +21,19 @@ namespace Zetcil
         [Header("Audio Settings")]
         [Range(0,1)] public float SoundVolume = 1;
 
+        [Header("Slider Settings")]
+        public Slider TargetSlider;
+
         string ConfigDirectory = "Config";
         string SoundDirectory = "Audio";
 
         // Start is called before the first frame update
         void Start()
         {
-
+            if (OperationType == COperationType.Runtime)
+            {
+                LoadFile();
+            }
         }
 
         // Update is called once per frame
@@ -86,6 +92,10 @@ namespace Zetcil
 
                 xmlnodelist = xmldoc.GetElementsByTagName("Volume");
                 SoundVolume = float.Parse(xmlnodelist.Item(0).InnerText.Trim());
+                if (TargetSlider != null)
+                {
+                    TargetSlider.value = SoundVolume;
+                }
                 SetAllSound();
             }
         }
@@ -100,9 +110,9 @@ namespace Zetcil
 
         }
 
-        public void SetSoundSlider(Slider aSlider)
+        public void SetSoundSlider()
         {
-            SoundVolume = aSlider.value;
+            SoundVolume = TargetSlider.value;
         }
 
         void Awake()

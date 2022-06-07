@@ -96,7 +96,6 @@ MonoBehaviour:
   isEnabled: 0
   PointerType: 0
   TargetCamera: {fileID: 0}
-  TargetPivot: {fileID: 0}
   usingVector2: 0
   VarVector2D: {fileID: 7422631546838313380}
   Vector2X: {fileID: 9049685011998386586}
@@ -123,6 +122,7 @@ MonoBehaviour:
     isManualRotate: 0
     MouseLookButton: 324
     LookSpeed: 4
+    TargetObject: {fileID: 0}
   usingRaycastController: 0
   RaycastController:
     isRaycast: 0
@@ -384,10 +384,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4792281185180416}
     m_Modifications:
-    - target: {fileID: 1846416951268420, guid: c77ccb4bb6db19b4384bcad9af64cf40, type: 3}
-      propertyPath: m_Name
-      value: VarObject
-      objectReference: {fileID: 0}
     - target: {fileID: 4701801522957934, guid: c77ccb4bb6db19b4384bcad9af64cf40, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -444,6 +440,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1846416951268420, guid: c77ccb4bb6db19b4384bcad9af64cf40, type: 3}
+      propertyPath: m_Name
+      value: VarObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c77ccb4bb6db19b4384bcad9af64cf40, type: 3}
 --- !u!4 &4370985910760800392 stripped
@@ -459,11 +459,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4792281185180416}
     m_Modifications:
-    - target: {fileID: 147483318795538614, guid: 61192007941227b4cb63683ccf256a5b,
-        type: 3}
-      propertyPath: m_Name
-      value: VarVector2
-      objectReference: {fileID: 0}
     - target: {fileID: 8746256115697849573, guid: 61192007941227b4cb63683ccf256a5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -533,6 +528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 147483318795538614, guid: 61192007941227b4cb63683ccf256a5b,
+        type: 3}
+      propertyPath: m_Name
+      value: VarVector2
       objectReference: {fileID: 0}
     - target: {fileID: 8263392780418051912, guid: 61192007941227b4cb63683ccf256a5b,
         type: 3}

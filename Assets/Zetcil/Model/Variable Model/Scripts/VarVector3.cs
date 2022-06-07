@@ -17,6 +17,10 @@ namespace Zetcil
         [ConditionalField("usingVector3")] public VarFloat Vector3X;
         [ConditionalField("usingVector3")] public VarFloat Vector3Y;
         [ConditionalField("usingVector3")] public VarFloat Vector3Z;
+
+        [Header("Output Settings")]
+        [ConditionalField("usingVector3")] public bool Position;
+        [ConditionalField("usingVector3")] public bool Rotation;
         // Start is called before the first frame update
         void Start()
         {
@@ -29,6 +33,14 @@ namespace Zetcil
             Vector3X.CurrentValue = CurrentValue.x;
             Vector3Y.CurrentValue = CurrentValue.y;
             Vector3Z.CurrentValue = CurrentValue.z;
+            if (Rotation)
+            {
+                transform.localRotation = Quaternion.Euler(CurrentValue);
+            }
+            if (Position)
+            {
+                transform.position = CurrentValue;
+            }
         }
 
         public float GetCurrentValueX()

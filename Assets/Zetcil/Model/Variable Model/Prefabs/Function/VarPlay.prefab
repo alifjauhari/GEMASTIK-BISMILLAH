@@ -204,10 +204,10 @@ MonoBehaviour:
     RotateRight: 0
     ShiftKey: 0
   AltKeyboardKey:
-    UpKey: 273
-    LeftKey: 276
-    DownKey: 274
-    RightKey: 275
+    UpKey: 119
+    LeftKey: 97
+    DownKey: 115
+    RightKey: 100
     JumpKey: 0
     RotateLeft: 0
     RotateRight: 0

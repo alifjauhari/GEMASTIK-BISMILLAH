@@ -19,6 +19,28 @@ namespace Zetcil
         public bool isEnabled;
         [ConditionalField("isEnabled")] public string CurrentValue;
 
+        public void SaveVariable()
+        {
+            PlayerPrefs.SetString(transform.gameObject.name, CurrentValue);
+        }
+
+        public void SaveVariableDebug()
+        {
+            PlayerPrefs.SetString(transform.gameObject.name, CurrentValue);
+            Debug.Log("Save Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+        public void LoadVariable()
+        {
+            CurrentValue = PlayerPrefs.GetString(transform.name);
+        }
+
+        public void LoadVariableDebug()
+        {
+            CurrentValue = PlayerPrefs.GetString(transform.name);
+            Debug.Log("Load Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
         public void SetPrefCurrentValue(string aID)
         {
             PlayerPrefs.SetString(aID, CurrentValue);
@@ -32,6 +54,21 @@ namespace Zetcil
         public string GetCurrentValue()
         {
             return CurrentValue;
+        }
+
+        public void PrintToText(InputField aValue)
+        {
+            aValue.text = CurrentValue;
+        }
+
+        public void PrintToText(Text aValue)
+        {
+            aValue.text = CurrentValue;
+        }
+
+        public void PrintToText(TextMesh aValue)
+        {
+            aValue.text = CurrentValue;
         }
 
         public void SetCurrentValue(string aValue)

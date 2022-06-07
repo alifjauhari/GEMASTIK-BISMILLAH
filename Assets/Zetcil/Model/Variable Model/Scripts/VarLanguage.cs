@@ -11,7 +11,7 @@ namespace Zetcil
     public class VarLanguage : MonoBehaviour
     {
         public enum COperationType { None, Initialize, Runtime }
-        public enum CLanguageType { Indonesian, English, Arabic, Korean, Japanese, Chinese }
+        public enum CLanguageType { Indonesian, English, Arabic, Korean, Japanese, Chinese, Other }
 
         [Space(10)]
         public bool isEnabled;
@@ -45,6 +45,10 @@ namespace Zetcil
         [Header("Chinese Settings")]
         public bool usingChinese;
         public UnityEvent ChineseEvent;
+
+        [Header("Other Settings")]
+        public bool usingOther;
+        public UnityEvent OtherEvent;
 
         string ConfigDirectory = "Config";
         string LanguageDirectory = "Languages";
@@ -134,6 +138,17 @@ namespace Zetcil
             }
         }
 
+        void Start()
+        {
+            if (isEnabled)
+            {
+                if (OperationType == COperationType.Runtime)
+                {
+                    LoadFile();
+                }
+            }
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -181,21 +196,49 @@ namespace Zetcil
             SaveFile();
         }
 
+        public void SetOtherLanguage()
+        {
+            LanguageType = CLanguageType.Other;
+            SaveFile();
+        }
+
         void LoadCurrentLanguage(string aLanguage)
         {
-            if (aLanguage == "ARABIC") LanguageType = CLanguageType.Arabic;
-            if (aLanguage == "INDONESIAN") LanguageType = CLanguageType.Indonesian;
-            if (aLanguage == "ENGLISH") LanguageType = CLanguageType.English;
-            if (aLanguage == "KOREAN") LanguageType = CLanguageType.Korean;
-            if (aLanguage == "JAPANESE") LanguageType = CLanguageType.Japanese;
-            if (aLanguage == "CHINESE") LanguageType = CLanguageType.Chinese;
-
-            if (usingArabic) ArabicEvent.Invoke();
-            if (usingIndonesia) IndonesiaEvent.Invoke();
-            if (usingEnglish) EnglishEvent.Invoke();
-            if (usingKorean) KoreanEvent.Invoke();
-            if (usingJapanese) JapaneseEvent.Invoke();
-            if (usingChinese) ChineseEvent.Invoke();
+            if (aLanguage == "ARABIC")
+            {
+                LanguageType = CLanguageType.Arabic;
+                if (usingArabic) ArabicEvent.Invoke();
+            }
+            else if (aLanguage == "INDONESIAN")
+            {
+                LanguageType = CLanguageType.Indonesian; 
+                if (usingIndonesia) IndonesiaEvent.Invoke();
+            }
+            else if (aLanguage == "ENGLISH")
+            {
+                LanguageType = CLanguageType.English;
+                if (usingEnglish) EnglishEvent.Invoke();
+            }
+            else if (aLanguage == "KOREAN")
+            {
+                LanguageType = CLanguageType.Korean;
+                if (usingKorean) KoreanEvent.Invoke();
+            }
+            else if (aLanguage == "JAPANESE")
+            {
+                LanguageType = CLanguageType.Japanese;
+                if (usingJapanese) JapaneseEvent.Invoke();
+            }
+            else if (aLanguage == "CHINESE")
+            {
+                LanguageType = CLanguageType.Chinese;
+                if (usingChinese) ChineseEvent.Invoke();
+            }
+            else if (aLanguage == "OTHER")
+            {
+                LanguageType = CLanguageType.Other;
+                if (usingOther) OtherEvent.Invoke();
+            }
         }
         string SaveCurrentLanguage()
         {
@@ -206,6 +249,7 @@ namespace Zetcil
             if (LanguageType == CLanguageType.Korean) result = "KOREAN";
             if (LanguageType == CLanguageType.Japanese) result = "JAPANESE";
             if (LanguageType == CLanguageType.Chinese) result = "CHINESE";
+            if (LanguageType == CLanguageType.Other) result = "OTHER";
             return result;
         }
 
@@ -237,6 +281,9 @@ namespace Zetcil
 
             languageAsset = (TextAsset)Resources.Load(LanguageDirectory+"/Chinese", typeof(TextAsset));
             SaveLanguageFile("Chinese", languageAsset.ToString());
+
+            languageAsset = (TextAsset)Resources.Load(LanguageDirectory + "/Other", typeof(TextAsset));
+            SaveLanguageFile("Other", languageAsset.ToString());
         }
 
         public void SaveLanguageFile(string aLanguageID, string aLanguageData)
@@ -279,7 +326,8 @@ namespace Zetcil
                 xmldoc.LoadXml(tempxml);
 
                 xmlnodelist = xmldoc.GetElementsByTagName("Language");
-                LoadCurrentLanguage(xmlnodelist.Item(0).InnerText.Trim());
+                string language = xmlnodelist.Item(0).InnerText.Trim();
+                LoadCurrentLanguage(language);
             }
         }
     }

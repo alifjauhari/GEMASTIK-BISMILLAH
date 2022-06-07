@@ -64,7 +64,7 @@ namespace Zetcil
 
             GUILayout.Space(5);
 
-            GUILayout.Label("Zetcil Framework ver 2.b0403 (c) 2018-2020 \n");
+            GUILayout.Label("Zetcil Framework ver 5.b0403 (c) 2018-2021 \n");
         }
 
     }

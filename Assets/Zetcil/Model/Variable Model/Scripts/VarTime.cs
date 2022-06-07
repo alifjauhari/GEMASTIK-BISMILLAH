@@ -27,6 +27,29 @@ namespace Zetcil
         [Header("Time Settings")]
         [ConditionalField("isEnabled")] public CTimeCalculation TimeCalculation;
 
+        public void SaveVariable()
+        {
+            PlayerPrefs.SetInt(transform.gameObject.name, CurrentValue);
+        }
+
+        public void SaveVariableDebug()
+        {
+            PlayerPrefs.SetInt(transform.gameObject.name, CurrentValue);
+            Debug.Log("Save Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+        public void LoadVariable()
+        {
+            CurrentValue = PlayerPrefs.GetInt(transform.name);
+        }
+
+        public void LoadVariableDebug()
+        {
+            CurrentValue = PlayerPrefs.GetInt(transform.name);
+            Debug.Log("Load Variable [" + transform.gameObject.name + "]: " + CurrentValue.ToString());
+        }
+
+
         // Use this for initialization
         void Start()
         {
@@ -62,6 +85,21 @@ namespace Zetcil
             }
         }
 
+
+        public void OutputFromCurrentValue(InputField aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void OutputFromCurrentValue(Text aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
+
+        public void OutputFromCurrentValue(TextMesh aValue)
+        {
+            aValue.text = CurrentValue.ToString();
+        }
         // Update is called once per frame
         void Update()
         {
