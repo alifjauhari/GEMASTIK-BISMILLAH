@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Zetcil
 {
@@ -8,9 +9,6 @@ namespace Zetcil
     {
         [Space(10)]
         public bool isEnabled;
-
-        [Header("Text Settings")]
-        public VarString TextCaption;
 
         [Header("Material Settings")]
         public bool usingMaterialSettings;
@@ -21,9 +19,15 @@ namespace Zetcil
 
         [Header("GUI Settings")]
         public bool usingGUISettings;
+        public VarString TextCaption;
         public GUISkin gUISkin;
         public Vector2 gUISize;
         public Vector2 gUIOffset;
+
+        [Header("Events Settings")]
+        public bool usingEventSettings;
+        public UnityEvent HoverEvent;
+        public UnityEvent ExitEvent;
 
         // Start is called before the first frame update
         void Start()
@@ -39,14 +43,29 @@ namespace Zetcil
 
         void OnMouseExit()
         {
-            TargetMaterial.GetComponent<Renderer>().material = NormalMaterial;
             isHover = false;
+            if (usingMaterialSettings)
+            {
+                TargetMaterial.GetComponent<Renderer>().material = NormalMaterial;
+            }
+            if (usingEventSettings)
+            {
+                ExitEvent.Invoke();
+            }
         }
 
         void OnMouseOver()
         {
-            TargetMaterial.GetComponent<Renderer>().material = HighlightMaterial;
+            
             isHover = true;
+            if (usingMaterialSettings)
+            {
+                TargetMaterial.GetComponent<Renderer>().material = HighlightMaterial;
+            }
+            if (usingEventSettings)
+            {
+                HoverEvent.Invoke();
+            }
         }
 
         void OnGUI()

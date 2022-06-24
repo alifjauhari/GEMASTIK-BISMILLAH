@@ -105,12 +105,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
-  usingMaterialSettings: 1
+  TextCaption: {fileID: 0}
+  usingMaterialSettings: 0
   TargetMaterial: {fileID: 0}
-  NormalMaterial: {fileID: 2100000, guid: 07b5763a767f89540b60aa10474883f2, type: 2}
-  HighlightMaterial: {fileID: 2100000, guid: 91264805cc68b834b9c1eb8ba550237e, type: 2}
-  usingGUISettings: 1
+  NormalMaterial: {fileID: 0}
+  HighlightMaterial: {fileID: 0}
+  usingGUISettings: 0
   gUISkin: {fileID: 11400000, guid: 0658dc3543d11d749a842a807786e565, type: 2}
   gUISize: {x: 300, y: 30}
   gUIOffset: {x: 0, y: -40}
-  TextCaption: {fileID: 0}
