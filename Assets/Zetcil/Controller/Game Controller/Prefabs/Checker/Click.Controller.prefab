@@ -104,14 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959079f2c3149f443885bbc7d13d1377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
+  isEnabled: 1
   usingTrueClickEvent: 0
   TrueClickEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  usingFalseClickEvent: 0
+  usingFalseClickEvent: 1
   FalseClickEvent:
     m_PersistentCalls:
       m_Calls: []

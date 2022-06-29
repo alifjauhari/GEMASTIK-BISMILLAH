@@ -11,10 +11,6 @@ namespace Zetcil
         [Space(10)]
         public bool isEnabled;
 
-        [Header("Default Click Settings")]
-        public bool usingDefaultClickEvent;
-        public UnityEvent DefaultClickEvent;
-
         [Header("True Click Settings")]
         public bool usingTrueClickEvent;
         public UnityEvent TrueClickEvent;
@@ -41,10 +37,6 @@ namespace Zetcil
         void OnMouseDown()
         {
             ClickStatus = !ClickStatus;
-            if (usingDefaultClickEvent)
-            {
-                DefaultClickEvent.Invoke();
-            }
             if (usingTrueClickEvent)
             {
                 if (ClickStatus)
@@ -59,11 +51,6 @@ namespace Zetcil
                     FalseClickEvent.Invoke();
                 }
             }
-        }
-
-        void InvokeDefaultEvent()
-        {
-            DefaultClickEvent.Invoke();
         }
 
         void InvokeTrueEvent()

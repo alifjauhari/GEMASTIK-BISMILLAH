@@ -8,8 +8,6 @@ namespace Zetcil
     {
         public SerializedProperty
            isEnabled,
-           usingDefaultClickEvent,
-           DefaultClickEvent,
            usingTrueClickEvent,
            TrueClickEvent,
            usingFalseClickEvent,
@@ -21,8 +19,6 @@ namespace Zetcil
 
         {
             isEnabled = serializedObject.FindProperty("isEnabled");
-            usingDefaultClickEvent = serializedObject.FindProperty("usingDefaultClickEvent");
-            DefaultClickEvent = serializedObject.FindProperty("DefaultClickEvent");
             usingTrueClickEvent = serializedObject.FindProperty("usingTrueClickEvent");
             TrueClickEvent = serializedObject.FindProperty("TrueClickEvent");
             usingFalseClickEvent = serializedObject.FindProperty("usingFalseClickEvent");
@@ -35,11 +31,6 @@ namespace Zetcil
             EditorGUILayout.PropertyField(isEnabled);
             if (isEnabled.boolValue)
             {
-                EditorGUILayout.PropertyField(usingDefaultClickEvent, true);
-                if (usingDefaultClickEvent.boolValue)
-                {
-                    EditorGUILayout.PropertyField(DefaultClickEvent, true);
-                }
                 EditorGUILayout.PropertyField(usingTrueClickEvent, true);
                 if (usingTrueClickEvent.boolValue)
                 {

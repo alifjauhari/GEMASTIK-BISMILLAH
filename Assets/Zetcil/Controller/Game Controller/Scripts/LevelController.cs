@@ -228,17 +228,6 @@ namespace Zetcil
             }
         }
 
-        public void LoadSceneBy5SecondAndLoading(string SceneName)
-        {
-            if (isEnabled)
-            {
-                lastSceneName = SceneName;
-                SaveLoadingName(SceneName);
-                lastSceneIndex = SceneIndexFromName(SceneName);
-                Invoke("InvokeLoadSceneLoading", 5);
-            }
-        }
-
         void InvokeLoadScene()
         {
             SceneManager.LoadScene(lastSceneName);
